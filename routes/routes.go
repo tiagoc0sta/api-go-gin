@@ -9,5 +9,6 @@ func HandleRequests() {
 	r := gin.Default()
 	r.GET("/vehicles", controllers.ShowAllVehicles)
 	r.GET("/:name", controllers.Greeting)
+	r.POST("/vehicles", controllers.CreateNewVehicle)
 	r.Run()
 }

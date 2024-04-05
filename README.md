@@ -1,8 +1,8 @@
 # api-go-gin
 
-# Gin framework- para criar API
+# Gin framework- para criar API  - site: https://github.com/gin-gonic/gin
 
-# Gorm - utilizado para conectar com o DB
+# Gorm - utilizado para conectar com o DB - site: https://gorm.io/docs/index.html
 
 # Postgres
 
