@@ -27,7 +27,14 @@ func CreateNewVehicle(c *gin.Context) {
 	if err := c.ShouldBindJSON(&vehicle); err != nil { //in case there is error (error not empty)
 		c.JSON(http.StatusBadRequest,gin.H{
 			"error": err.Error()})
+		return
 	}
+	//validation
+	if err := models.ValidateVehicleData(&vehicle); err != nil { 
+		c.JSON(http.StatusBadRequest,gin.H{
+			"error": err.Error()})
+		return
+	} 
 	database.DB.Create(&vehicle)   // in case there is no error do this
 	c.JSON(http.StatusOK, vehicle)
 }
@@ -64,6 +71,13 @@ func EditVehicle(c *gin.Context) {
 			"error":err.Error()})
 		return	
 	}
+
+	//validation
+	if err := models.ValidateVehicleData(&vehicle); err != nil { 
+		c.JSON(http.StatusBadRequest,gin.H{
+			"error": err.Error()})
+		return
+	} 
 
 	database.DB.Model(&vehicle).UpdateColumns(vehicle)
 	c.JSON(http.StatusOK, vehicle)

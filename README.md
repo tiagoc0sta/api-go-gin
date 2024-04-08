@@ -104,3 +104,6 @@ Integrating with a React Frontend
 
 - 1 postgres
 - 2 pgadmin-compose
+
+-----------------------------
+### Validator - V2 - https://pkg.go.dev/gopkg.in/validator.v2
