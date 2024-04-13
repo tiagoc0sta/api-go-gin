@@ -41,6 +41,7 @@ To run this project, you will need to do the following:
 
 - Implement API testing
 - run on terminal: go test
+- Testify = https://github.com/stretchr/testify
 
 # Golang: Website Monitoring
 
@@ -83,7 +84,7 @@ Integrating with a React Frontend
   run main.go
 ```
 
-3. Open Postman and perform CRUD operations on API. See the reponse on the frontend
+4. Open Postman and perform CRUD operations on API. See the reponse on the frontend
 
 ### Pages:
 
@@ -113,3 +114,9 @@ Integrating with a React Frontend
 ---
 
 ### Validator - V2 - https://pkg.go.dev/gopkg.in/validator.v2
+
+### gitignore - Explain importance
+
+### Render page on the FrontEnd
+
+### Swagger - Framework for API documentation / testing

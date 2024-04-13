@@ -96,3 +96,16 @@ func SearchVehiclePerVin(c *gin.Context) {
 
 	c.JSON(http.StatusOK, vehicle)
 }
+
+//show frontend - index.html
+func ShowIndexPage(c *gin.Context) {
+	var vehicles []models.Vehicle //create a variable with a slice of vehicles 
+	database.DB.Find(&vehicles)  //database will find all vehicles and save into vehicles variable(slice)
+	c.HTML(http.StatusOK, "index.html", gin.H{
+		"vehicles":vehicles,
+	})
+}
+
+func RouteNotFound(c *gin.Context) {
+	c.HTML(http.StatusNotFound, "404.html", nil)
+}
