@@ -4,15 +4,27 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	_ "github.com/swaggo/swag/example/celler/httputil"
 	"github.com/tiagoc0sta/api-go-gin/database"
 	"github.com/tiagoc0sta/api-go-gin/models"
 )
 
+// ShowAllVehicles godoc
+//
+//	@Summary		show all vehicles
+//	@Description	route to show all products
+//	@Tags			vehicles
+//	@Accept			json
+//	@Produce		json
+//	@Success		200	{object}	models.Vehicle
+//	@Failure		400	{object}	httputil.HTTPError
+//	@Router			/vehicles [get]
 func ShowAllVehicles(c *gin.Context) {
 	var vehicles []models.Vehicle
 	database.DB.Find(&vehicles)
 	c.JSON(200, vehicles)
 }
+
 
 func Greeting (c *gin.Context) {
 	nome := c.Params.ByName("name")
@@ -21,6 +33,17 @@ func Greeting (c *gin.Context) {
 	}) 	
 }
 
+// CreateNewVehicle godoc
+//
+//	@Summary		Add new vehicle
+//	@Description	route to create a new products
+//	@Tags			vehicles
+//	@Accept			json
+//	@Produce		json
+//	@Param			vehicle body models.Vehicle true	"Vehicle model" 
+//	@Success		200	{object}	models.Vehicle
+//	@Failure		400	{object}	httputil.HTTPError
+//	@Router			/vehicles [post]
 func CreateNewVehicle(c *gin.Context) {
 	var vehicle models.Vehicle
 
@@ -39,6 +62,18 @@ func CreateNewVehicle(c *gin.Context) {
 	c.JSON(http.StatusOK, vehicle)
 }
 
+
+// SearchVehiclePerID godoc
+//
+//	@Summary		Show vehicle per ID
+//	@Description	Route to show vehicle per ID
+//	@Tags			vehicles
+//	@Accept			json
+//	@Produce		json
+//	@Param			id	path		int	true	"Vehicle ID"
+//	@Success		200	{object}	models.Vehicle
+//	@Failure		400	{object}	httputil.HTTPError
+//	@Router			/vehicles/{id} [get]
 func SearchVehiclePerID(c *gin.Context) {
 	var vehicle models.Vehicle 
 	id := c.Params.ByName("id")
@@ -52,6 +87,18 @@ func SearchVehiclePerID(c *gin.Context) {
 	c.JSON(http.StatusOK, vehicle)  //show this vehicle on screen
 }
 
+
+// DeleteVehicle godoc
+//
+//	@Summary		Delete vehicle per ID
+//	@Description	Route to delete vehicle per ID
+//	@Tags			vehicles
+//	@Accept			json
+//	@Produce		json
+//	@Param			id	path		int	true	"Vehicle ID"
+//	@Success		200	{object}	models.Vehicle
+//	@Failure		400	{object}	httputil.HTTPError
+//	@Router			/vehicles/{id} [delete]
 func DeleteVehicle(c *gin.Context) {
 	var vehicle models.Vehicle
 	id := c.Params.ByName("id")
@@ -61,6 +108,18 @@ func DeleteVehicle(c *gin.Context) {
 }
 
 
+// EditVehicle godoc
+//
+//	@Summary		Update vehicle per ID
+//	@Description	Route to update vehicle per ID
+//	@Tags			vehicles
+//	@Accept			json
+//	@Produce		json
+//	@Param			id	path		int	true	"Vehicle ID"
+//  @Param vehicle body models.Vehicle true "vehiccle update"
+//	@Success		200	{object}	models.Vehicle
+//	@Failure		400	{object}	httputil.HTTPError
+//	@Router			/vehicles/{id} [patch]
 func EditVehicle(c *gin.Context) {
 	var vehicle models.Vehicle
 	id := c.Params.ByName("id")

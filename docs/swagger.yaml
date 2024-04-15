@@ -1,0 +1,162 @@
+definitions:
+  gorm.DeletedAt:
+    properties:
+      time:
+        type: string
+      valid:
+        description: Valid is true if Time is not NULL
+        type: boolean
+    type: object
+  httputil.HTTPError:
+    properties:
+      code:
+        example: 400
+        type: integer
+      message:
+        example: status bad request
+        type: string
+    type: object
+  models.Vehicle:
+    properties:
+      brand:
+        type: string
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      id:
+        type: integer
+      name:
+        type: string
+      updatedAt:
+        type: string
+      vin:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /vehicles:
+    get:
+      consumes:
+      - application/json
+      description: route to show all products
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Vehicle'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: show all vehicles
+      tags:
+      - vehicles
+    post:
+      consumes:
+      - application/json
+      description: route to create a new products
+      parameters:
+      - description: Vehicle model
+        in: body
+        name: vehicle
+        required: true
+        schema:
+          $ref: '#/definitions/models.Vehicle'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Vehicle'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Add new vehicle
+      tags:
+      - vehicles
+  /vehicles/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Route to delete vehicle per ID
+      parameters:
+      - description: Vehicle ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Vehicle'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Delete vehicle per ID
+      tags:
+      - vehicles
+    get:
+      consumes:
+      - application/json
+      description: Route to show vehicle per ID
+      parameters:
+      - description: Vehicle ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Vehicle'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Show vehicle per ID
+      tags:
+      - vehicles
+    patch:
+      consumes:
+      - application/json
+      description: Route to update vehicle per ID
+      parameters:
+      - description: Vehicle ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: vehiccle update
+        in: body
+        name: vehicle
+        required: true
+        schema:
+          $ref: '#/definitions/models.Vehicle'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Vehicle'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Update vehicle per ID
+      tags:
+      - vehicles
+swagger: "2.0"
