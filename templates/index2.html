@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Auto</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <!---Navbar--->
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">WebSiteName</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+              >Page 1 <span class="caret"></span
+            ></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Page 1-1</a></li>
+              <li><a href="#">Page 1-2</a></li>
+              <li><a href="#">Page 1-3</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Page 2</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="#"
+              ><span class="glyphicon glyphicon-user"></span> Sign Up</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><span class="glyphicon glyphicon-log-in"></span> Login</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!---Welcome banner -->
+    <div class="jumbotron text-center">
+      <h1>CAR info API</h1>
+      <p>Resize this responsive page to see the effect!</p>
+    </div>
+
+    <!--Form-->
+    <div class="container mt-5">
+      <h2 class="mb-3">Budgeting App System</h2>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Add New Budget</h5>
+          <form action="/add-book" method="post">
+            <div class="form-group">
+              <label for="title">Title:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="title"
+                name="title"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="author">Author:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="author"
+                name="author"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="published_date">Published Date:</label>
+              <input
+                type="date"
+                class="form-control"
+                id="published_date"
+                name="published_date"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Add Book</button>
+          </form>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">List of Books</h5>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Published Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{range .}}
+              <tr>
+                <td>{{.ID}}</td>
+                <td>{{.Title}}</td>
+                <td>{{.Author}}</td>
+                <td>{{.PublishedDate.Format "2006-01-02"}}</td>
+                <td>
+                  <form
+                    action="/delete-book"
+                    method="post"
+                    style="display: inline"
+                  >
+                    <input type="hidden" name="book_id" value="{{.ID}}" />
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                  </form>
+                  <form
+                    action="/update-book"
+                    method="get"
+                    style="display: inline"
+                  >
+                    <input type="hidden" name="book_id" value="{{.ID}}" />
+                    <button type="submit" class="btn btn-primary">
+                      Update
+                    </button>
+                  </form>
+                </td>
+              </tr>
+              {{end}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!--Columns-->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <h3>Column 1</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+          <p>
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris...
+          </p>
+        </div>
+        <div class="col-sm-4">
+          <h3>Column 2</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+          <p>
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris...
+          </p>
+        </div>
+        <div class="col-sm-4">
+          <h3>Column 3</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+          <p>
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris...
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
