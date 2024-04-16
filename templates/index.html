@@ -1,30 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="../assets/index.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../assets/index.css" />
+    <style>
+      body {
+        background-color: #f2f0e9;
+      }
+
+      .custom-table {
+        background-color: white;
+      }
+
+      h1 {
+        font-family: 'Roboto';
+        margin: 0 auto;
+        margin-top: 6%;
+        text-align: center;
+        font-size: 70px;
+      }
+
+      ul,
+      li {
+        font-family: 'Roboto';
+        margin: 0 auto;
+        text-align: center;
+        font-size: 40px;
+        list-style: none;
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vehicles</title>
-</head>
-<body>
-  <div class="widget-wrap">
-    <h1>API - Gin e Golang</h1>
-    <div class="widget-wrap">      
-      <table id="the-table">
-        <tr>
-          <th>Name</th>
-          <th>Vin</th>
-          <th>Brand</th>
-        </tr>
-        {{range .vehicles}}
-        <tr>
-          <td>{{.Name}}</td>
-          <td>{{.Vin}}</td>
-          <td>{{.Brand}}</td>
-        </tr>
-        {{end}}
-      </table>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 class="mb-3">API - Gin e Golang</h1>
+      <div class="widget-wrap">
+        <table id="the-table" class="table table-striped custom-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Vin</th>
+              <th>Brand</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{range .vehicles}}
+            <tr>
+              <td>{{.Name}}</td>
+              <td>{{.Vin}}</td>
+              <td>{{.Brand}}</td>
+            </tr>
+            {{end}}
+          </tbody>
+        </table>
       </div>
-</body>
+    </div>
+  </body>
 </html>
