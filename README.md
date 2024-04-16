@@ -32,19 +32,23 @@ To run this project, you will need to do the following:
 ## Demo
 
 ### Postgre database created via Docker
+
 - http://localhost:54321 = login to pgAdmin - PostgreSQL
   ![image](https://github.com/tiagoc0sta/class33/assets/63982700/4d4ec76a-e39e-491a-9e12-fb75afdfc0ed)
 
 ### Postman - Perform CRUD tests via
-  ![image](https://github.com/tiagoc0sta/class33/assets/63982700/3e265af4-ba2e-46bd-a4fa-265a1e62999d)
+
+![image](https://github.com/tiagoc0sta/class33/assets/63982700/3e265af4-ba2e-46bd-a4fa-265a1e62999d)
 
 ### View all API data on JSON format
+
 - http://localhost:8080/vehicles - see vehicles (json)
 
 ![image](https://github.com/tiagoc0sta/api-go-gin/assets/63982700/849edbb7-77df-4ac8-b69e-c746518141be)
 
 ### Swagger - Framework for API documentation / testing
-- http://localhost:8080/swagger/index.html 
+
+- http://localhost:8080/swagger/index.html
 
 ![image](https://github.com/tiagoc0sta/api-go-gin/assets/63982700/dc73cebb-134c-41ce-ae20-2b9befc2eb43)
 
@@ -52,14 +56,14 @@ To run this project, you will need to do the following:
 - Swagger official documentation: https://github.com/swaggo/gin-swagger
 
 ### Frontend
-- http://localhost:8080/index 
-![image](https://github.com/tiagoc0sta/api-go-gin/assets/63982700/31320394-7dbb-46a5-aad4-6dbdb5cb33ee)
+
+- ![image](https://github.com/tiagoc0sta/api-go-gin/assets/63982700/fa9a4315-fc01-4c77-942c-a66883ae6e5b)
 
 ## Tests
 
 - Implement automated testing
 - run on terminal: go test
-![image](https://github.com/tiagoc0sta/api-go-gin/assets/63982700/87424b7e-1369-42de-9457-a9213d86384d)
+  ![image](https://github.com/tiagoc0sta/api-go-gin/assets/63982700/87424b7e-1369-42de-9457-a9213d86384d)
 
 - Testify official documentation: https://github.com/stretchr/testify
 
@@ -106,9 +110,6 @@ Integrating with a React Frontend
 
 4. Open Postman and perform CRUD operations on API. See the reponse on the frontend
 
-
-
-
 ## Notes:
 
 ### Gin framework- to create API - Official site: https://github.com/gin-gonic/gin
@@ -135,14 +136,10 @@ Integrating with a React Frontend
 
 ![image](https://github.com/tiagoc0sta/api-go-gin/assets/63982700/1fb13b62-61c2-4c9c-ab04-dded88dc19a5)
 
-
 ### Render page on the FrontEnd
 
-
-
-
-
 ### Github - provide project link
+
 - https://github.com/tiagoc0sta/api-go-gin
 
 ### explain MVC model - Model View Controller
