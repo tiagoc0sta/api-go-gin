@@ -11,11 +11,20 @@
   <div class="widget-wrap">
     <h1>API - Gin e Golang</h1>
     <div class="widget-wrap">      
-        <ul id="the-list">
-          {{range .vehicles}}
-            <li>{{.Name}}</li>
-            {{end}} <!-- Finalize loop of getting Names from Vehicles slice -->
-        </ul>
+      <table id="the-table">
+        <tr>
+          <th>Name</th>
+          <th>Vin</th>
+          <th>Brand</th>
+        </tr>
+        {{range .vehicles}}
+        <tr>
+          <td>{{.Name}}</td>
+          <td>{{.Vin}}</td>
+          <td>{{.Brand}}</td>
+        </tr>
+        {{end}}
+      </table>
       </div>
 </body>
 </html>

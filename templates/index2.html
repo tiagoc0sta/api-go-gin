@@ -54,65 +54,60 @@
 
     <!--Form-->
     <div class="container mt-5">
-      <h2 class="mb-3">Budgeting App System</h2>
+      <h2 class="mb-3">Vehicle information</h2>
 
       <div class="card mb-4">
         <div class="card-body">
-          <h5 class="card-title">Add New Budget</h5>
-          <form action="/add-book" method="post">
+          <h5 class="card-title">Add Vehicle</h5>
+          <form id="addVehicleForm" action="/vehicles" method="post">
             <div class="form-group">
-              <label for="title">Title:</label>
+              <label for="title">Brand:</label>
               <input
                 type="text"
                 class="form-control"
-                id="title"
-                name="title"
+                id="brand"
+                name="brand"
                 required
               />
             </div>
             <div class="form-group">
-              <label for="author">Author:</label>
+              <label for="author">Name:</label>
               <input
                 type="text"
                 class="form-control"
-                id="author"
-                name="author"
+                id="name"
+                name="name"
                 required
               />
             </div>
             <div class="form-group">
-              <label for="published_date">Published Date:</label>
-              <input
-                type="date"
-                class="form-control"
-                id="published_date"
-                name="published_date"
-              />
+              <label for="published_date">Vin:</label>
+              <input type="text" class="form-control" id="vin" name="vin" />
             </div>
-            <button type="submit" class="btn btn-primary">Add Book</button>
+            <button id="addVehicleButton" type="button" class="btn btn-primary">
+              Add Vehicle
+            </button>
           </form>
         </div>
       </div>
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">List of Books</h5>
+          <h5 class="card-title">List of Vehicles</h5>
           <table class="table table-bordered">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Published Date</th>
+                <th>Brand</th>
+                <th>Name</th>
+                <th>Vin</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody>
-              {{range .}}
+              {{range .vehicles}}
               <tr>
-                <td>{{.ID}}</td>
-                <td>{{.Title}}</td>
-                <td>{{.Author}}</td>
-                <td>{{.PublishedDate.Format "2006-01-02"}}</td>
+                <td>{{.Brand}}</td>
+                <td>{{.Name}}</td>
+                <td>{{.Vin}}</td>
                 <td>
                   <form
                     action="/delete-book"
@@ -170,5 +165,9 @@
         </div>
       </div>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
 </html>

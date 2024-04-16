@@ -165,6 +165,8 @@ func ShowIndexPage(c *gin.Context) {
 	})
 }
 
+
+
 func RouteNotFound(c *gin.Context) {
 	c.HTML(http.StatusNotFound, "404.html", nil)
 }
