@@ -109,6 +109,20 @@
               <td>{{.Vin}}</td>
               <td>{{.Brand}}</td>
               <td>{{.Name}}</td>
+              <td>
+                <form action="/vehicles/{{.ID}}" method="POST">
+                  <input type="hidden" name="_method" value="DELETE" />
+                  <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+              </td>
+              <td>
+                <a href="/vehicles/{{.ID}}/edit" class="btn btn-primary"
+                  >Edit</a
+                >
+                <a href="/vehicles/{{.ID}}/update" class="btn btn-warning"
+                  >Update</a
+                >
+              </td>
             </tr>
             {{end}}
           </tbody>
