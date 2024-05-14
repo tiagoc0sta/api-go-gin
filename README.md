@@ -138,7 +138,7 @@ Integrating with a React Frontend
 
 ### Render page on the FrontEnd
 
-### Github - provide project link
+#### Github - provide project link
 
 - https://github.com/tiagoc0sta/api-go-gin
 
